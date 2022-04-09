@@ -268,6 +268,42 @@
     </GUI>
   </transform>
   <transform>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <send_true_to>Selecionar apenas a Titulação</send_true_to>
+    <send_false_to/>
+    <compare>
+      <condition>
+        <negated>N</negated>
+        <leftvalue>Validação SETEC</leftvalue>
+        <function>=</function>
+        <rightvalue/>
+        <value>
+          <name>constant</name>
+          <type>String</type>
+          <text>Deferido</text>
+          <length>-1</length>
+          <precision>-1</precision>
+          <isnull>N</isnull>
+          <mask/>
+        </value>
+      </condition>
+    </compare>
+    <attributes/>
+    <GUI>
+      <xloc>368</xloc>
+      <yloc>288</yloc>
+    </GUI>
+  </transform>
+  <transform>
     <name>Selecionar apenas a Titulação</name>
     <type>SelectValues</type>
     <description/>
@@ -326,33 +362,6 @@
     </GUI>
   </transform>
   <transform>
-    <name>Unique rows</name>
-    <type>Unique</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <case_insensitive>N</case_insensitive>
-        <name>dim_tit_titulacao</name>
-      </field>
-    </fields>
-    <count_field/>
-    <count_rows>N</count_rows>
-    <error_description/>
-    <reject_duplicate_row>N</reject_duplicate_row>
-    <attributes/>
-    <GUI>
-      <xloc>1264</xloc>
-      <yloc>288</yloc>
-    </GUI>
-  </transform>
-  <transform>
     <name>Table output</name>
     <type>TableOutput</type>
     <description/>
@@ -371,17 +380,13 @@
         <stream_name>dim_titulacao</stream_name>
       </field>
     </fields>
-    <return_field/>
     <ignore_errors>N</ignore_errors>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
     <partitioning_monthly>Y</partitioning_monthly>
     <return_keys>N</return_keys>
-    <schema/>
     <specify_fields>N</specify_fields>
     <table>"public".dim_titulacao</table>
-    <tablename_field/>
     <tablename_in_field>N</tablename_in_field>
     <tablename_in_table>Y</tablename_in_table>
     <truncate>N</truncate>
@@ -393,8 +398,8 @@
     </GUI>
   </transform>
   <transform>
-    <name>Filter rows</name>
-    <type>FilterRows</type>
+    <name>Unique rows</name>
+    <type>Unique</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -403,28 +408,17 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <send_true_to>Selecionar apenas a Titulação</send_true_to>
-    <send_false_to/>
-    <compare>
-      <condition>
-        <negated>N</negated>
-        <leftvalue>Validação SETEC</leftvalue>
-        <function>=</function>
-        <rightvalue/>
-        <value>
-          <name>constant</name>
-          <type>String</type>
-          <text>Deferido</text>
-          <length>-1</length>
-          <precision>-1</precision>
-          <isnull>N</isnull>
-          <mask/>
-        </value>
-      </condition>
-    </compare>
+    <fields>
+      <field>
+        <case_insensitive>N</case_insensitive>
+        <name>dim_tit_titulacao</name>
+      </field>
+    </fields>
+    <count_rows>N</count_rows>
+    <reject_duplicate_row>N</reject_duplicate_row>
     <attributes/>
     <GUI>
-      <xloc>368</xloc>
+      <xloc>1264</xloc>
       <yloc>288</yloc>
     </GUI>
   </transform>
