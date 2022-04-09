@@ -20,26 +20,6 @@
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>chave dando erro pois já existe uma chave </note>
-      <xloc>1536</xloc>
-      <yloc>352</yloc>
-      <width>237</width>
-      <heigth>26</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>14</fontcolorred>
-      <fontcolorgreen>58</fontcolorgreen>
-      <fontcolorblue>90</fontcolorblue>
-      <backgroundcolorred>201</backgroundcolorred>
-      <backgroundcolorgreen>232</backgroundcolorgreen>
-      <backgroundcolorblue>251</backgroundcolorblue>
-      <bordercolorred>14</bordercolorred>
-      <bordercolorgreen>58</bordercolorgreen>
-      <bordercolorblue>90</bordercolorblue>
-    </notepad>
   </notepads>
   <order>
     <hop>
@@ -50,11 +30,6 @@
     <hop>
       <from>Ordenar titulação</from>
       <to>Unicas linhas titulação</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Unicas linhas titulação</from>
-      <to>dim_titulacao</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -83,11 +58,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Unicas linhas jornada</from>
-      <to>dim_jornada</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Filter rows</from>
       <to>Dummy (do nothing)</to>
       <enabled>Y</enabled>
@@ -110,6 +80,16 @@
     <hop>
       <from>Únicas linhas de unidade</from>
       <to>dim_unidade</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unicas linhas titulação</from>
+      <to>dim_titulacao</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unicas linhas jornada</from>
+      <to>dim_jornada</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -416,7 +396,7 @@
     <attributes/>
     <GUI>
       <xloc>960</xloc>
-      <yloc>112</yloc>
+      <yloc>128</yloc>
     </GUI>
   </transform>
   <transform>
@@ -508,7 +488,7 @@
     <attributes/>
     <GUI>
       <xloc>672</xloc>
-      <yloc>112</yloc>
+      <yloc>128</yloc>
     </GUI>
   </transform>
   <transform>
@@ -597,7 +577,7 @@
     <attributes/>
     <GUI>
       <xloc>1264</xloc>
-      <yloc>112</yloc>
+      <yloc>128</yloc>
     </GUI>
   </transform>
   <transform>
@@ -622,74 +602,6 @@
     <attributes/>
     <GUI>
       <xloc>1264</xloc>
-      <yloc>288</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>dim_jornada</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <commit>1000</commit>
-    <connection>DW_PROFESSOR_TECNICO</connection>
-    <fields>
-</fields>
-    <ignore_errors>N</ignore_errors>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <return_keys>N</return_keys>
-    <specify_fields>N</specify_fields>
-    <table>"public".dim_jornada_trabalho</table>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_in_table>Y</tablename_in_table>
-    <truncate>N</truncate>
-    <use_batch>Y</use_batch>
-    <attributes/>
-    <GUI>
-      <xloc>1536</xloc>
-      <yloc>112</yloc>
-    </GUI>
-  </transform>
-  <transform>
-    <name>dim_titulacao</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <commit>1000</commit>
-    <connection>DW_PROFESSOR_TECNICO</connection>
-    <fields>
-      <field>
-        <column_name>dim_titulacao</column_name>
-        <stream_name>dim_titulacao</stream_name>
-      </field>
-    </fields>
-    <ignore_errors>N</ignore_errors>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <return_keys>N</return_keys>
-    <specify_fields>N</specify_fields>
-    <table>"public".dim_titulacao</table>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_in_table>Y</tablename_in_table>
-    <truncate>N</truncate>
-    <use_batch>Y</use_batch>
-    <attributes/>
-    <GUI>
-      <xloc>1536</xloc>
       <yloc>288</yloc>
     </GUI>
   </transform>
@@ -721,7 +633,7 @@
     <use_batch>Y</use_batch>
     <attributes/>
     <GUI>
-      <xloc>1344</xloc>
+      <xloc>1536</xloc>
       <yloc>448</yloc>
     </GUI>
   </transform>
@@ -746,8 +658,80 @@
     <reject_duplicate_row>N</reject_duplicate_row>
     <attributes/>
     <GUI>
-      <xloc>1136</xloc>
+      <xloc>1264</xloc>
       <yloc>448</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>dim_titulacao</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <commit>1000</commit>
+    <connection>DW_PROFESSOR_TECNICO</connection>
+    <fields>
+</fields>
+    <return_field/>
+    <ignore_errors>N</ignore_errors>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <return_keys>N</return_keys>
+    <schema/>
+    <specify_fields>N</specify_fields>
+    <table>"public".dim_titulacao</table>
+    <tablename_field/>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_in_table>Y</tablename_in_table>
+    <truncate>N</truncate>
+    <use_batch>Y</use_batch>
+    <attributes/>
+    <GUI>
+      <xloc>1536</xloc>
+      <yloc>288</yloc>
+    </GUI>
+  </transform>
+  <transform>
+    <name>dim_jornada</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <commit>1000</commit>
+    <connection>DW_PROFESSOR_TECNICO</connection>
+    <fields>
+</fields>
+    <return_field/>
+    <ignore_errors>N</ignore_errors>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <return_keys>N</return_keys>
+    <schema/>
+    <specify_fields>N</specify_fields>
+    <table>"public".dim_jornada_trabalho</table>
+    <tablename_field/>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_in_table>Y</tablename_in_table>
+    <truncate>N</truncate>
+    <use_batch>Y</use_batch>
+    <attributes/>
+    <GUI>
+      <xloc>1536</xloc>
+      <yloc>128</yloc>
     </GUI>
   </transform>
   <transform_error_handling>
